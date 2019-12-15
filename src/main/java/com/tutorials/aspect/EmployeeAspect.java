@@ -111,6 +111,14 @@ public class EmployeeAspect {
         System.out.println("After returning advice on method: " + method + " and result: " + employees);
     }
 
+    /**
+     * Throws advice is executed after a method invocation
+     * returns, but only if that invocation threw an exception. It is
+     * possible for throws advice to catch only specific exceptions,
+     * and if you choose to do so, you can access the method
+     * that threw the exception, the arguments passed into the
+     * invocation, and the target of the invocation.
+     */
     @AfterThrowing(pointcut = "execution(* com.tutorials.service.*.*())", throwing = "throwable")
     public void afterThrowingAdvice(final JoinPoint joinPoint, Throwable throwable) {
         System.out.println("After throwing advice called with the following exception: " + throwable.getMessage());
